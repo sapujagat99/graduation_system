@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Penilaian Kelulusan Otomatis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+    </div>
+
+    <main class="container">
+        <header>
+            <h1 class="typing-text"></h1>
+            <p>Masukkan data dan nilai mahasiswa untuk melihat hasil kelulusan.</p>
+        </header>
+
+        <div class="glass-card">
+            <form id="gradeForm">
+                <div class="form-group">
+                    <label for="name">Nama Mahasiswa</label>
+                    <input type="text" id="name" placeholder="Contoh: Budi Santoso" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nim">NIM</label>
+                    <input type="text" id="nim" placeholder="Contoh: 12345678" required>
+                </div>
+
+                <div class="scores-grid">
+                    <div class="form-group">
+                        <label for="absences">Absensi (35%)</label>
+                        <input type="number" id="absences" min="0" max="14" placeholder="0-14" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="assignment">Nilai Tugas (15%)</label>
+                        <input type="number" id="assignment" min="0" max="100" placeholder="0-100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="midterm">Nilai UTS (25%)</label>
+                        <input type="number" id="midterm" min="0" max="100" placeholder="0-100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="final">Nilai UAS (25%)</label>
+                        <input type="number" id="final" min="0" max="100" placeholder="0-100" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-calculate">Hitung Hasil</button>
+            </form>
+        </div>
+
+        <div id="resultCard" class="glass-card result-card hidden">
+            <div class="result-header">
+                <h2>Hasil Penilaian</h2>
+                <button id="resetBtn" class="btn-icon" title="Reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 12" />
+                    </svg>
+                </button>
+            </div>
+
+            <div class="student-info">
+                <h3 id="resultName">Nama Mahasiswa</h3>
+                <p id="resultNim">NIM: 12345678</p>
+            </div>
+
+            <div class="result-details">
+                <div class="score-box">
+                    <span class="label">Nilai Akhir</span>
+                    <span class="value" id="finalScore">0</span>
+                </div>
+                <div class="score-box">
+                    <span class="label">Grade</span>
+                    <span class="value" id="grade">A</span>
+                </div>
+                <div class="score-box status-box">
+                    <span class="label">Status</span>
+                    <span class="value" id="status">LULUS</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
